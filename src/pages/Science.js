@@ -26,7 +26,6 @@ export default App = () => {
       .finally(() => setLoading(false));
   }, []);
   
-
   return (
     <View style={styles.container} >
       {isLoading ? <ActivityIndicator size="small" color="#DDD"/> : (
@@ -35,7 +34,6 @@ export default App = () => {
           keyExtractor={(_, index) => index.toString()}
           renderItem={({ item }) => (
             <>
-
                 <TouchableOpacity
                     onPress={() => {setModalVisible(true), setUrl(item.url)}} >
                     <View style={styles.item}>

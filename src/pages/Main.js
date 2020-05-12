@@ -26,7 +26,6 @@ function Main( {navigation} ){
                     <Text style={style.text}>
                     Ir para noticias de Tecnologia
                     </Text>
-
                 </TouchableOpacity>
             </View>
             <View >

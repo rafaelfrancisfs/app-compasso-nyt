@@ -9,4 +9,4 @@ INFO:
     - utilzado o createAppContainer e createStackNavigator para ter um navegação mais simples;
     - link tipo TouchableOpacity para trazer uma navegabilidade mais fluída para que está usando;
     - o modal com webview para ter a experiência tipo SPA;
-    tes
+    

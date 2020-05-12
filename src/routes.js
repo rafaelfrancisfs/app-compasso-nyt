@@ -5,8 +5,6 @@ import Main from './pages/Main'
 import Science from './pages/Science'
 import Technology from './pages/Technology'
 
-
-
 const Routes = createAppContainer (
     createStackNavigator({
         Main:{
