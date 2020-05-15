@@ -19,11 +19,14 @@ export default App = () => {
   const nytkey = 'bNRgwOiIKkASCAoq8fceEcb2UBGy0XyQ';
 
   useEffect(() => {
-    fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${ nytkey }`)
-      .then((response) => response.json())
-      .then((json) => setData(json.results))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+    async function loadNews(){
+      await fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${ nytkey }`)
+        .then((response) => response.json())
+        .then((json) => setData(json.results))
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
+    }
+    loadNews();
   }, []);
   
   return (
@@ -44,7 +47,7 @@ export default App = () => {
                 </TouchableOpacity>
                 
                 {/* MODAL */}
-                <View style={styles.centeredView}>
+                <View style={styles.viewModal}>
                
                     <Modal
                         animationType="slide"
@@ -54,9 +57,10 @@ export default App = () => {
                         Alert.alert("Noticia Fechada");
                         }}
                     >
-                        <View style={styles.centeredView}>
+                        <View style={styles.viewModal}>
                             <>
                             <WebView style={styles.modalView}
+                            originWhitelist={['*']}
                             source={{ uri: url} }  />
                                 <TouchableOpacity style={{ ...styles.button }}
                                     onPress={() => {setModalVisible(!modalVisible); }} >
@@ -102,7 +106,7 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginTop: 5
     },
-    centeredView: {
+    viewModal: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: "center",
